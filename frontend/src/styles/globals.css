@@ -1,0 +1,139 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import "./fonts.css";
+@import "./colors.css";
+
+@layer utilities {
+  .center {
+    @apply flex items-center justify-center;
+  }
+
+  .center-col {
+    @apply flex flex-col items-center justify-center;
+  }
+
+  .maintext-gradient {
+    background: radial-gradient(circle, #3dc8ff, #6a91fd);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .secondarytext-gradient {
+    background: radial-gradient(
+      circle,
+      var(--popover-foreground),
+      var(--foreground)
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .main-gradient {
+    background: radial-gradient(
+      circle,
+      var(--primary-foreground),
+      var(--primary)
+    );
+  }
+
+  .secondary-gradient {
+    background: radial-gradient(
+      circle,
+      var(--popover-foreground),
+      var(--foreground)
+    );
+  }
+}
+
+@layer base {
+  * {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    font-size: 100%;
+    font-family: inherit;
+    vertical-align: baseline;
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  ::-webkit-scrollbar {
+    width: 0.8rem;
+    height: 0.5rem;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background-color: var(--foreground);
+  }
+
+  /* Anel Carrousel */
+
+  .dots {
+    @apply !bottom-[-50px];
+  }
+
+  .dots li button::before {
+    @apply !hidden;
+  }
+
+  .dots li button {
+    @apply center bg-transparent !border-[1px] !border-solid !border-primary-foreground rounded-md;
+  }
+
+  .dots li.slick-active button {
+    @apply center !bg-primary-foreground;
+  }
+
+  .slider-container .slick-slide {
+    @apply transition-all;
+  }
+
+  .slider-container .slick-slide {
+    @apply scale-[0.96] opacity-40;
+  }
+
+  .slider-container .slick-slide.slick-active {
+    @apply scale-[1] opacity-100;
+  }
+
+  .ring-item {
+    @apply center h-[45px] rounded-lg border border-solid border-primary relative bg-[#111111];
+  }
+
+  .ring-title {
+    box-shadow: inset 0px 0px 8px 4px rgba(126, 91, 2, 0.272);
+  }
+
+  .ring-item::before {
+    @apply content-[''] top-0 left-3 absolute border border-solid border-primary translate-y-[-50%] bg-foreground text-[12px] px-2 py-1 rounded-md;
+  }
+
+  /* Modal */
+
+  .modal-overlay {
+    @apply !bg-[#0b0b0bac] fixed inset-0 center;
+  }
+
+  /* Glass Effect */
+
+  .glass-effect {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+  }
+}
